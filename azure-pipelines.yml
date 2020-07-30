@@ -27,3 +27,10 @@ steps:
     projects: '**/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
 
+# Run unit tests (e.g., MSTest, xUnit, NUnit)
+- task: DotNetCoreCLI@2
+  displayName:  'dotnet test'
+  inputs:
+    command: test
+    projects: '**/*.csproj'
+    arguments: '--configuration $(buildConfiguration)'
