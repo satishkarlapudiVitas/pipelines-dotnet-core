@@ -32,7 +32,7 @@ steps:
   displayName: Azure Web App Deploy
   inputs:
     appType: webApp
-    azureSubscription: 'AzureDemoPipelineSC'
+    azureSubscription: 'Vitas_Test'
     appName: 'AzureDemoAppVitas'
     package: $(Build.ArtifactStagingDirectory)/*.zip
     
