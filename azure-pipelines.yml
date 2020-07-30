@@ -20,7 +20,6 @@ inputs:
 command: restore
 projects: '**/*.csproj'
 
-# Build the project 
 
 - task: DotNetCoreCLI@2
 displayName: 'dotnet build'
