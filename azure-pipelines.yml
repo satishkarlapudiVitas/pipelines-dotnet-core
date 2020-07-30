@@ -34,3 +34,18 @@ steps:
     command: test
     projects: '**/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
+
+# Publish artifacts to Azure Pipelines
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet publish'
+  inputs:
+    command: publish
+    publishWebProjects: false
+    projects: '**/*.csproj'
+    arguments: '--configuration $(buildConfiguratoin) --output $(Build.ArtifactStagingDirectory)'
+
+# Upload build artifacts
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
+  inputs:
+    ArtifactName: 'AzureDemoPipeline'
