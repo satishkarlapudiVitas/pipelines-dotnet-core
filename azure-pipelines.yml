@@ -1,0 +1,29 @@
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+# Download Nuget packages and project-specific tools
+task: DonnetCoreCLI@2
+displayName: 'dotnet restore'
+inputs:
+command: restore
+projects: '**/*.csproj'
+
+# Build the project 
+
+task: DotNet build'
+inputs:
+projects: '**/*.csproj'
+arguments: '--configuration $(buildConfiguration)'
+
