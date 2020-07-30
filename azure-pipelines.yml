@@ -14,7 +14,7 @@ variables:
 
 steps:
 # Download Nuget packages and project-specific tools
--task: DonnetCoreCLI@2
+task: DotNetCoreCLI@2
 displayName: 'dotnet restore'
 inputs:
 command: restore
@@ -22,7 +22,7 @@ projects: '**/*.csproj'
 
 # Build the project 
 
--task: DotNetCoreCLI@2
+task: DotNetCoreCLI@2
 displayName: 'dotnet build'
 inputs:
 projects: '**/*.csproj'
