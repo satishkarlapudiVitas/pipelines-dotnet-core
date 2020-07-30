@@ -42,7 +42,7 @@ steps:
     command: publish
     publishWebProjects: false
     projects: '**/*.csproj'
-    arguments: '--configuration $(buildConfiguratoin) --output $(Build.ArtifactStagingDirectory)'
+    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
 
 # Upload build artifacts
 - task: PublishBuildArtifacts@1
