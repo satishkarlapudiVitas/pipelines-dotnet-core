@@ -33,7 +33,7 @@ steps:
   inputs:
     appType: webApp
     azureSubscription: 'Vitas_Test'
-    appName: 'AzureDemoAppVitas'
+    appName: 'Vitas_Test'
     package: $(Build.ArtifactStagingDirectory)/*.zip
     
 # Run unit tests (e.g., MSTest, xUnit, NUnit)
