@@ -27,14 +27,7 @@ steps:
     projects: '**/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
 
-# Deploy a Web Deploy Package (ASP.NET)
-- task: AzureWebApp@1
-  displayName: Azure Web App Deploy
-  inputs:
-    appType: webApp
-    azureSubscription: 'Vitas_Test'
-    appName: 'VitasTestWebApp'
-    package: $(Build.ArtifactStagingDirectory)/*.zip
+
     
 # Run unit tests (e.g., MSTest, xUnit, NUnit)
 - task: DotNetCoreCLI@2
@@ -58,3 +51,12 @@ steps:
   displayName: 'Publish Artifact: drop'
   inputs:
     ArtifactName: 'AzureDemoPipeline'
+
+# Deploy a Web Deploy Package (ASP.NET)
+- task: AzureWebApp@1
+  displayName: Azure Web App Deploy
+  inputs:
+    appType: webApp
+    azureSubscription: 'Vitas_Test'
+    appName: 'VitasTestWebApp'
+    package: $(Build.ArtifactStagingDirectory)/*.zip    
