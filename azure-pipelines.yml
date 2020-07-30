@@ -27,6 +27,15 @@ steps:
     projects: '**/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
 
+# Deploy a Web Deploy Package (ASP.NET)
+- task: AzureWebApp@1
+  displayName: Azure Web App Deploy
+  inputs:
+    appType: webApp
+    azureSubscription: 'AzureDemoPipelineSC'
+    appName: 'AzureDemoAppVitas'
+    package: $(Build.ArtifactStagingDirectory)/*.zip
+    
 # Run unit tests (e.g., MSTest, xUnit, NUnit)
 - task: DotNetCoreCLI@2
   displayName:  'dotnet test'
